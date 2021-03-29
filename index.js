@@ -15,7 +15,7 @@ const client = new MongoClient(uri, {
 });
 
 app.get("/", (req, res) => {
-  res.send(<h1>Welcome to my Website</h1>);
+  res.send("Welcome to my Website");
 });
 
 client.connect((err) => {
