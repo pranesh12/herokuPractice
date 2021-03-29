@@ -7,7 +7,6 @@ require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
-console.log(process.env.DB_USER, process.env.DB_PASSWORD);
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.qlian.mongodb.net/volunter?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
@@ -42,6 +41,6 @@ client.connect((err) => {
   console.log("database connected");
 });
 
-app.listen(5055, () => {
+app.listen(process.env.PORT || 5055, () => {
   console.log("App is running on 5055");
 });
