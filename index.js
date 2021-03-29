@@ -14,6 +14,10 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
+app.get("/", (req, res) => {
+  res.send(<h1>Welcome to my Website</h1>);
+});
+
 client.connect((err) => {
   const eventCollection = client.db("volunter").collection("events");
   app.post("/addEvent", (req, res) => {
